@@ -4,7 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "find-deadcode": "ts-prune -p tsconfig.json -e && if [ -z \"$(git status -s)\" ]; then echo \"Dead code found!\" && exit 1; exit 0; fi",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -18,7 +27,9 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
+    "ts-prune": "^0.10.3",
     "typescript": "^5.0.4"
   }
 }

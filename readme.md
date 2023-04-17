@@ -1,3 +1,11 @@
+## Visão geral
+Projeto que tem por finalidade estabelecer as seguintes configurações iniciais para projetos typescript:
+
+- Eslint;
+- Pre-commit com Husky;
+- Base para testes com Jest;
+- CI no GitHubActions;
+
 ## Padrões de Commits
 <tipo>[escopo opcional]: <descrição->
 

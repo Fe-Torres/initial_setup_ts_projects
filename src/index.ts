@@ -8,4 +8,5 @@ class felipe {
 	}
 }
 
+// ts-prune-ignore-next
 export const example = new felipe();
