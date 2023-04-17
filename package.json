@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "find-deadcode": "ts-prune -p tsconfig.json -e && if [ -z \"$(git status -s)\" ]; then echo \"Dead code found!\" && exit 1; exit 0; fi",
+    "find-deadcode": "ts-prune -p tsconfig.json -e && if [ -z \"$(git status -s)\" ]; then exit 1; else echo \"Dead code not found!\"; exit 0; fi",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
