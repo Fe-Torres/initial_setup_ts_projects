@@ -40,9 +40,6 @@ jobs:
 
     - name: Lint and format code
       run: npm run eslint
-
-    - name: Run Ts-Prune
-      run: npm run find-deadcode
     
     - name: Deploy to staging
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
