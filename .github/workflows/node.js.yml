@@ -13,6 +13,8 @@ jobs:
 
     strategy:
       matrix:
+        language:
+          - typescript
         node-version: [16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
@@ -31,4 +33,20 @@ jobs:
       run: npm run build --if-present
     
     - name: Tests
-      run: npm test
+      run: npm run tests --if-present
+
+    - name: Analyze vulnerabilities
+      run: npm audit
+
+    - name: Lint and format code
+      run: npm run eslint-fix
+
+    - name: Run Ts-Prune
+      run: npm run find-deadcode
+    
+    - name: Deploy to staging
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: |
+        echo "Deploying to staging"
+        # comandos para fazer deploy da aplicação em um ambiente de staging
+    
